@@ -25,3 +25,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'],function(){
     Route::resource('channels','ChannelsController');
 });
+
+/*Create Discussion*/
+
+Route::get('discussion/create',[
+    'uses' => 'DiscussionController@create',
+    'as' => 'discussion.create'
+]);
+
+/*Store a Discussion*/
+
+Route::post('discussion/store',[
+    'uses'=> 'DiscussionController@store',
+    'as' => 'discussion.store'
+]);
+
