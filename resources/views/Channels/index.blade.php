@@ -1,55 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Channels</div>
+    <div class="card">
+        <div class="card-header">Dashboard</div>
 
-                    <div class="card-body">
-
-                        <table class="table table-hover">
-                            <thead>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
 
 
-                            <th>Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
 
 
-                            </thead>
+                </thead>
 
-                            <tbody>
+                <tbody>
 
 
-                            @foreach($channels as $channel)
-                                <tr>
-                                    <td>{{$channel->title}}</td>
-                                    <td><a href="{{route('channels.edit',['channel'=>$channel->id]) }}"
-                                           class="btn btn-xs btn-info">Edit</a></td>
-                                    <td>
-                                        <form action="{{route('channels.destroy',['channel'=>$channel->id]) }}"
-                                              method="POST">
+                @foreach($channels as $channel)
+                    <tr>
+                        <td>{{$channel->title}}</td>
+                        <td><a href="{{route('channels.edit',['channel'=>$channel->id]) }}"
+                               class="btn btn-xs btn-info">Edit</a></td>
+                        <td>
+                            <form action="{{route('channels.destroy',['channel'=>$channel->id]) }}"
+                                  method="POST">
 
-                                            {{csrf_field()}}
-                                            {{method_field('DELETE')}}
-                                            <button class="btn btn-xs btn-danger" type="submit">
-                                                Delete
-                                            </button>
+                                {{csrf_field()}}
+                                {{method_field('DELETE')}}
+                                <button class="btn btn-xs btn-danger" type="submit">
+                                    Delete
+                                </button>
 
-                                        </form>
-                                    </td>
-                                </tr>
+                            </form>
+                        </td>
+                    </tr>
 
-                            @endforeach
-                            </tbody>
+                @endforeach
+                </tbody>
 
-                        </table>
-
-                    </div>
-                </div>
-            </div>
+            </table>
         </div>
+
     </div>
 @endsection
+
