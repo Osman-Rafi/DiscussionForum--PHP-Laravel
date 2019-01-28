@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+/*Protecting the Channels Controller by Auth Middleware*/
+
+Route::group(['middleware' => 'auth'],function(){
+    Route::resource('channels','ChannelsController');
+});
