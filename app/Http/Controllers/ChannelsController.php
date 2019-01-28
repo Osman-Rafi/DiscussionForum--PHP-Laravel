@@ -6,6 +6,7 @@ use App\Channel;
 use Illuminate\Http\Request;
 
 use App\Channels;
+use Illuminate\Support\Facades\Session;
 
 class ChannelsController extends Controller
 {
@@ -26,7 +27,7 @@ class ChannelsController extends Controller
      */
     public function create()
     {
-        //
+        return view('Channels.create');
     }
 
     /**
@@ -37,7 +38,17 @@ class ChannelsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'channel' => 'required'
+        ]);
+
+        Channels::create([
+            'title' => $request->channel
+        ]);
+
+        Session::flash('success', 'Channel created.');
+
+        return redirect()->route('channels.index');
     }
 
     /**
