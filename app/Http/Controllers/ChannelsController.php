@@ -70,7 +70,7 @@ class ChannelsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Channels.edit')->with('channel', Channels::find($id));
     }
 
     /**
@@ -82,7 +82,14 @@ class ChannelsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $channel = Channels::find($id);
+
+        $channel->title =$request->title;
+
+        $channel->save();
+
+        Session::flash('success','Channel Edited Successfully');
+        return redirect()->route('channels.index');
     }
 
     /**
