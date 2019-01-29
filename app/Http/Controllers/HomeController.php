@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Discussion;
+use App\Replay;
 
 class HomeController extends Controller
 {

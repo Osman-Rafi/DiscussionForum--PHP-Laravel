@@ -7,6 +7,7 @@ use App\Discussion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\User;
+use App\Replay;
 
 class DiscussionController extends Controller
 {

@@ -10,11 +10,11 @@ class Reply extends Model
 
     public function Discussion()
     {
-        return $this->belongsTo('app\Discussion');
+        return $this->belongsTo('App\Discussion');
     }
 
     public function User()
     {
-        return $this->belongsTo('app\User');
+        return $this->belongsTo('App\User');
     }
 }
