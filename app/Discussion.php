@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+
 
 class Discussion extends Model
 {
@@ -10,16 +12,16 @@ class Discussion extends Model
 
     public function Reply()
     {
-        return $this->hasMany('app\Reply');
+        return $this->hasMany('App\Reply');
     }
 
-    public function User()
+    public function user()
     {
-        return $this->belongsTo('app\User');
+        return $this->belongsTo('App\User');
     }
 
     public function Channel()
     {
-        return $this->belongsTo('app\Channel');
+        return $this->belongsTo('App\Channel');
     }
 }

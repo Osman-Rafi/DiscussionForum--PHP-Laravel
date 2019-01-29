@@ -40,3 +40,9 @@ Route::post('discussion/store',[
     'as' => 'discussion.store'
 ]);
 
+/*Show a Discussion*/
+
+Route::get('discussion/{slug}',[
+    'uses' => 'DiscussionController@show',
+    'as' => 'discussion'
+]);

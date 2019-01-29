@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Discussion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\User;
 
 class DiscussionController extends Controller
 {
@@ -34,7 +35,12 @@ class DiscussionController extends Controller
         Session::flash('success','Discussion Successfully Created');
         return redirect()->route('discussion',['slug' => $dicussion->slug]);
     }
-    
 
+    public function show($slug)
+    {
+
+        return view('discussion.show')->with('post',Discussion::where('slug',$slug)->first());
+
+    }
 
 }
