@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/forum', 'HomeController@index')->name('forum');
 
 
 /*Protecting the Channels Controller by Auth Middleware*/

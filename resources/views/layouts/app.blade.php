@@ -80,8 +80,9 @@
 
                     <div class="col-md-3">
 
-                        {{--<a href="{{route('discussion.create')}}" class="form-control btn btn-primary">Create a New Discussion</a>--}}
+                        <a href="{{route('discussion.create')}}" class="form-control btn btn-primary">Create a New Discussion</a>
 
+                        <br><br>
                         <div class="panel panel-default">
 
                             <div class="card">
