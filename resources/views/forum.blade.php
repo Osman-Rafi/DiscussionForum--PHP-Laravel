@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="card-footer text-muted">
-                           <strong style="color: #686868">{{$post->Replies->count()}} Replies</strong>
+                            <strong style="color: #686868">{{$post->Replies->count()}} Replies</strong>
                             <a href="{{route('discussion',['slug' => $post->slug])}}" class="btn btn-dark float-right">View</a>
                         </div>
 
@@ -36,8 +36,9 @@
                 {{--Page Links--}}
                 <br>
                 <hr>
-                {{$discussion->links()}}
-
+                <div class="card text-center">
+                    {{$discussion->links()}}
+                </div>
             </div>
 
         </div>
