@@ -85,8 +85,9 @@
                             {{csrf_field()}}
 
                             <label for="Reply">Leave a Reply for the Post</label>
-                            <div class="form-group">
-                                <textarea name="content" id="content" cols="30" rows="10"class="form-control"></textarea>
+
+                            <div class="md-form mb-4 pink-textarea active-pink-textarea">
+                                <textarea name="content" id="content" class="md-textarea form-control" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
@@ -99,6 +100,7 @@
                             <h2>Sign in to Leave a Reply</h2>
                         </div>
                     @endif
+
                 </div>
             </div>
 
