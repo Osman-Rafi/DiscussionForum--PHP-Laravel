@@ -46,3 +46,20 @@ Route::get('discussion/{slug}',[
     'uses' => 'DiscussionController@show',
     'as' => 'discussion'
 ]);
+
+/*Like a Reply*/
+
+Route::get('reply/like/{id}',[
+    'uses' => 'RepliesController@like',
+    'as' => 'reply.like'
+]);
+
+
+/*Unlike a Reply*/
+
+Route::get('unreply/like/{id}',[
+    'uses' => 'RepliesController@unlike',
+    'as' => 'reply.unlike'
+]);
+
+
