@@ -13,6 +13,7 @@
                             <span class="float-right">
 
                                    <b>{{$post->created_at->diffForHumans()}}</b>
+                                <a class="badge badge-secondary" href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
 
                             </span>
                         </div>

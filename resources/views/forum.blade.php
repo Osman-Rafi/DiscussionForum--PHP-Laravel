@@ -11,7 +11,7 @@
                             {{--<img src="{{$post->user->avatar}}" alt="" width="70" height="70">--}}
                             <b style="font-family: 'Comic Sans MS';font-size: large">{{$post->user->name}}</b>
                             <span class="float-right">
-                                <span class="badge badge-secondary">{{$post->channel->title}}</span>
+                                <a class="badge badge-secondary" href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
                                    <b>{{$post->created_at->diffForHumans()}}</b>
 
                             </span>

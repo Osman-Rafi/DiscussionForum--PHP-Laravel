@@ -10,8 +10,9 @@
                 <div class="card-header float-left">
                     <b style="font-family: 'Comic Sans MS';font-size: large">{{strtoupper($post->user->name)}}</b>
                     <span class="float-right">
-                                   <b>{{$post->created_at->diffForHumans()}}</b>
-                            </span>
+                        <a class="badge badge-secondary" href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
+                        <b>{{$post->created_at->diffForHumans()}}</b>
+                    </span>
                 </div>
                 <div class="card text-center">
                     <div class="card-body">
