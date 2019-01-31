@@ -22,41 +22,44 @@ Route::get('/forum', 'HomeController@index')->name('forum');
 
 /*Protecting the Channels Controller by Auth Middleware*/
 
-Route::group(['middleware' => 'auth'],function(){
-    Route::resource('channels','ChannelsController');
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('channels', 'ChannelsController');
 });
 
 /*Create Discussion*/
 
-Route::get('discussion/create',[
-    'uses' => 'DiscussionController@create',
-    'as' => 'discussion.create'
-]);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('discussion/create', [
+        'uses' => 'DiscussionController@create',
+        'as' => 'discussion.create'
+    ]);
+});
 
 /*Store a Discussion*/
 
-Route::post('discussion/store',[
-    'uses'=> 'DiscussionController@store',
+Route::post('discussion/store', [
+    'uses' => 'DiscussionController@store',
     'as' => 'discussion.store'
 ]);
 
 /*Show a Discussion*/
 
-Route::get('discussion/{slug}',[
+Route::get('discussion/{slug}', [
     'uses' => 'DiscussionController@show',
     'as' => 'discussion'
 ]);
 
 /*Leave a reply*/
 
-Route::post('discussion/reply/{id}',[
+Route::post('discussion/reply/{id}', [
     'uses' => 'DiscussionController@reply',
     'as' => 'discussion.reply'
 ]);
 
 /*Like a Reply*/
 
-Route::get('reply/like/{id}',[
+Route::get('reply/like/{id}', [
     'uses' => 'RepliesController@like',
     'as' => 'reply.like'
 ]);
@@ -64,14 +67,14 @@ Route::get('reply/like/{id}',[
 
 /*Unlike a Reply*/
 
-Route::get('unreply/like/{id}',[
+Route::get('unreply/like/{id}', [
     'uses' => 'RepliesController@unlike',
     'as' => 'reply.unlike'
 ]);
 
 /*Disucssion for a particular channel*/
 
-Route::get('channel/{slug}',[
+Route::get('channel/{slug}', [
     'uses' => 'HomeController@channel',
     'as' => 'channel'
 ]);

@@ -45,7 +45,6 @@ class DiscussionController extends Controller
 
     public function reply($id,Request $request)
     {
-        /*return "Catched";*/
 
         $discussion= Discussion::find($id);
 
