@@ -8,10 +8,10 @@
 
                     <div class="card">
                         <div class="card-header float-left">
-                            {{--<img src="{{$post->user->avatar}}" alt="" width="70" height="70">--}}
+                            <img src="{{$post->user->avatar}}" alt="" width="70" height="70">
                             <b style="font-family: 'Comic Sans MS';font-size: large">{{$post->user->name}}</b>
                             <span class="float-right">
-                                <span class="badge badge-secondary">{{$post->channel->title}}</span>
+
                                    <b>{{$post->created_at->diffForHumans()}}</b>
 
                             </span>
@@ -38,9 +38,9 @@
                 {{--Page Links--}}
                 <br>
                 <hr>
-                <div class="card text-center">
+               {{-- <div class="card text-center">
                     {{$discussion->links()}}
-                </div>
+                </div>--}}
             </div>
 
         </div>

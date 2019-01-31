@@ -62,4 +62,9 @@ Route::get('unreply/like/{id}',[
     'as' => 'reply.unlike'
 ]);
 
+/*Disucssion for a particular channel*/
 
+Route::get('channel/{slug}',[
+    'uses' => 'HomeController@channel',
+    'as' => 'channel'
+]);
