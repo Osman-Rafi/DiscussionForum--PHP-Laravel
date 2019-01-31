@@ -47,6 +47,13 @@ Route::get('discussion/{slug}',[
     'as' => 'discussion'
 ]);
 
+/*Leave a reply*/
+
+Route::post('discussion/reply/{id}',[
+    'uses' => 'DiscussionController@reply',
+    'as' => 'discussion.reply'
+]);
+
 /*Like a Reply*/
 
 Route::get('reply/like/{id}',[

@@ -69,6 +69,27 @@
                 <br><br>
             @endforeach
 
+            {{--Leave a Reply--}}
+            
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="{{route('discussion.reply',['id' => $post->id]) }}" method="post">
+
+                        {{csrf_field()}}
+
+                        <label for="Reply">Leave a Reply for the Post</label>
+                        <div class="form-group">
+                            <textarea name="content" id="content" cols="30" rows="10"class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn float-right">Leave a Reply</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
         </div>
 
     </div>

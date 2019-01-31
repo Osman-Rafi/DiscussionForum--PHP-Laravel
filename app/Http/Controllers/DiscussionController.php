@@ -7,7 +7,7 @@ use App\Discussion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\User;
-use App\Replay;
+use App\Reply;
 
 class DiscussionController extends Controller
 {
@@ -41,6 +41,23 @@ class DiscussionController extends Controller
     {
 
         return view('discussion.show')->with('post',Discussion::where('slug',$slug)->first());
+    }
+
+    public function reply($id,Request $request)
+    {
+        /*return "Catched";*/
+
+        $discussion= Discussion::find($id);
+
+        $reply= Reply::create([
+            'user_id' => Auth::id(),
+            'discussion_id' => $id,
+            'content' => \request('content')
+        ]);
+
+
+        Session::flash('success','Replied Successfully created');
+        return redirect()->back();
     }
 
 
