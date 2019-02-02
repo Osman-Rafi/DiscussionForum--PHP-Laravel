@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NewReplyAdded;
 use Illuminate\Http\Request;
 use App\Discussion;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Reply;
@@ -54,7 +56,9 @@ class DiscussionController extends Controller
             array_push($watchers,User::find($watcher->user_id));
         }
 
-        dd($watchers);
+        /*for email notification*/
+
+        Notification::send($watchers,new \App\Notifications\NewReplyAdded());
 
 
         $reply= Reply::create([
