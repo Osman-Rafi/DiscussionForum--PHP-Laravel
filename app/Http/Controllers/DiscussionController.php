@@ -45,8 +45,17 @@ class DiscussionController extends Controller
 
     public function reply($id,Request $request)
     {
-
         $discussion= Discussion::find($id);
+
+        $watchers=array();
+
+        foreach ($discussion->watchers as $watcher)
+        {
+            array_push($watchers,User::find($watcher->user_id));
+        }
+
+        dd($watchers);
+
 
         $reply= Reply::create([
             'user_id' => Auth::id(),
