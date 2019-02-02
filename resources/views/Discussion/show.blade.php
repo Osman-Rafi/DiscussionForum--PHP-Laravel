@@ -8,10 +8,25 @@
 
             <div class="card">
                 <div class="card-header float-left">
+                    <img src="{{$post->user->avatar}}" alt="" width="70" height="70">
                     <b style="font-family: 'Comic Sans MS';font-size: large">{{strtoupper($post->user->name)}}</b>
                     <span class="float-right">
-                        <a class="badge badge-secondary" href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
+                        <a class="badge badge-secondary"
+                           href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
                         <b>{{$post->created_at->diffForHumans()}}</b>
+
+                        @if($post->is_being_watched_by_auth_user())
+
+                            <a href="{{route('discussion.unwatch',['id' => $post->id])}}"
+                               class="btn btn-danger btn-sm float-right">Unwatch  </a>
+
+                        @else
+
+                            <a href="{{route('discussion.watch',['id' => $post->id])}}"
+                               class="btn btn-success btn-sm float-right">Watch</a>
+
+                        @endif
+
                     </span>
                 </div>
                 <div class="card text-center">
@@ -87,7 +102,8 @@
                             <label for="Reply">Leave a Reply for the Post</label>
 
                             <div class="md-form mb-4 pink-textarea active-pink-textarea">
-                                <textarea name="content" id="content" class="md-textarea form-control" rows="3"></textarea>
+                                <textarea name="content" id="content" class="md-textarea form-control"
+                                          rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
