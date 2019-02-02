@@ -58,7 +58,7 @@ class DiscussionController extends Controller
 
         /*for email notification*/
 
-        Notification::send($watchers,new \App\Notifications\NewReplyAdded());
+        Notification::send($watchers,new \App\Notifications\NewReplyAdded($discussion));
 
 
         $reply= Reply::create([
