@@ -29,21 +29,60 @@
 
                     </span>
                 </div>
+
                 <div class="card text-center">
                     <div class="card-body">
                         <h2 class="card-title" style="font-family: Impact">{{strtoupper($post->title)}}</h2>
                         <p class="card-text"> {{$post->content}}</p>
                     </div>
+
+
+                    <br><br><br>
+
+
+                    @if($best_answer)
+
+                        {{--Best Answer Sectio Start--}}
+
+                        <div class="card-footer text-muted">
+                            <h2>Best Answer</h2>
+                        </div>
+
+                        <div class="card" style="padding: 40px">
+                            <div class="card-header float-left alert alert-success">
+                                <b style="font-family: 'Comic Sans MS';font-size: large"
+                                   class="float-left">{{strtoupper($best_answer->user->name)}}</b>
+                                <span class="float-right">
+                                <b>{{$best_answer->created_at->diffForHumans()}}</b>
+                            </span>
+                            </div>
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h2 class="card-title"
+                                        style="font-family: Impact">{{str_limit(strtoupper($best_answer->content),30)}}</h2>
+                                    <p class="card-text"> {{$best_answer->content}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    @endif
+
+                    <br><br><br>
+
                     <div class="card-footer text-muted">
-                        {{--{{$item->replies->count()}}--}} Replies
+                        {{$post->replies->count()}} Replies
                     </div>
                 </div>
 
+
             </div>
+
 
             {{--Replay Section--}}
 
             @foreach($post->replies as $r)
+
                 <div class="col">
                     <div class="col">
                         <div class="col">
@@ -54,8 +93,8 @@
                                         <div class="card-header float-left">
                                             <b style="font-family: 'Comic Sans MS';font-size: large">{{strtoupper($r->user->name)}}</b>
                                             <span class="float-right">
-                                   <b>{{$r->created_at->diffForHumans()}}</b>
-                            </span>
+                                                <b>{{$r->created_at->diffForHumans()}}</b>
+                                            </span>
                                         </div>
                                         <div class="card text-center">
                                             <div class="card-body">
@@ -64,6 +103,9 @@
                                                 <p class="card-text"> {{$r->content}}</p>
                                             </div>
                                         </div>
+
+                                        {{--Like Unlike Section--}}
+
                                         <div class="card-footer text-muted">
                                             @if($r->is_liked_by_auth_user())
 
@@ -80,10 +122,12 @@
                                             @endif
 
                                             @if(!$best_answer)
-                                                    <a href="{{route('discussion.best.answer',['id' => $r->id])}}" class="btn btn-sm btn-info float-right">Mark as Best answer</a>
+                                                <a href="{{route('discussion.best.answer',['id' => $r->id])}}"
+                                                   class="btn btn-sm btn-info float-right">Mark as Best answer</a>
                                             @endif
-
                                         </div>
+
+                                        {{--Like Unlike Section End--}}
                                     </div>
                                 </div>
                             </div>
