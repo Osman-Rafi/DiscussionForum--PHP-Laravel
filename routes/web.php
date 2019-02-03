@@ -92,3 +92,9 @@ Route::get('discussion/unwatch/{id}',[
     'uses' => 'WatchersController@unwatch',
     'as' => 'discussion.unwatch'
 ]);
+
+
+Route::get('discussion/best/reply/{id}',[
+    'uses' => 'RepliesController@best_answer',
+    'as' => 'discussion.best.answer'
+]);

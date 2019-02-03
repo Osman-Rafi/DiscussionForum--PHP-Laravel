@@ -78,6 +78,11 @@
                                                             class="badge badge-light">{{$r->likes->count()}}</span></a>
 
                                             @endif
+
+                                            @if(!$best_answer)
+                                                    <a href="{{route('discussion.best.answer',['id' => $r->id])}}" class="btn btn-sm btn-info float-right">Mark as Best answer</a>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Like;
-use App\Replay;
+use App\Reply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -29,6 +29,17 @@ class RepliesController extends Controller
         $like->delete();
 
         Session::flash('Success','You UnLiked the Reply');
+        return redirect()->back();
+    }
+
+    public function best_answer($id)
+    {
+        $reply=Reply::find($id);
+        $reply->best_answer=1;
+
+        $reply->save();
+
+        Session::flash('success','You marked the answer as best answer');
         return redirect()->back();
     }
 }

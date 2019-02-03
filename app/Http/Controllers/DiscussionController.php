@@ -41,8 +41,10 @@ class DiscussionController extends Controller
 
     public function show($slug)
     {
+        $discussion=Discussion::where('slug',$slug)->first();
+        $best_answer= $discussion->replies()->where('best_answer',1)->first();
 
-        return view('discussion.show')->with('post',Discussion::where('slug',$slug)->first());
+        return view('discussion.show')->with('post',$discussion)->with('best_answer',$best_answer);
     }
 
     public function reply($id,Request $request)
