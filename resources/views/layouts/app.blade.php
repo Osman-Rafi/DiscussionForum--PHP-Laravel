@@ -78,6 +78,20 @@
 
     <main class="py-4">
 
+
+{{--        <div class="container">
+            @if($errors->count()>0)
+                <ul class="list-group-item alert alert-danger">
+                    @foreach($errors as $error)
+                        <li class="list-group_item">
+                            {{$error}}
+                        </li>
+                    @endforeach
+
+                </ul>
+            @endif
+        </div>--}}
+
         <div class="container">
 
             <div class="row">
@@ -89,12 +103,11 @@
 
                     <br><br>
 
-                    <div class="card-header"><li class="list-group-item">
+                    <div class="card-header">
+                        <li class="list-group-item">
                             <a href="/forum">Home</a>
-                        </li></div>
-
-
-
+                        </li>
+                    </div>
 
 
                     <br><br>

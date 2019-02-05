@@ -93,6 +93,7 @@ Route::get('discussion/unwatch/{id}',[
     'as' => 'discussion.unwatch'
 ]);
 
+/*Mark best reply*/
 
 Route::get('discussion/best/reply/{id}',[
     'uses' => 'RepliesController@best_answer',

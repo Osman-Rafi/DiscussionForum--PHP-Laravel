@@ -33,6 +33,6 @@ class HomeController extends Controller
     public function channel($slug)
     {
         $channel= Channels::where('slug',$slug)->first();
-        return view('channel')->with('discussion',$channel->Discussions);
+        return view('channel')->with('discussion',$channel->discussions);
     }
 }
