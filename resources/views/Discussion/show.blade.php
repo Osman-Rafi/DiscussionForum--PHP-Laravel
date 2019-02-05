@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header float-left">
                     <img src="{{$post->user->avatar}}" alt="" width="70" height="70">
-                    <b style="font-family: 'Comic Sans MS';font-size: large">{{strtoupper($post->user->name)}}</b>
+                    <b style="font-family: 'Comic Sans MS';font-size: large">{{strtoupper($post->user->name)}} (Points: {{$post->user->points}})</b>
                     <span class="float-right">
                         <a class="badge badge-secondary"
                            href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
@@ -51,7 +51,7 @@
                         <div class="card" style="padding: 40px">
                             <div class="card-header float-left alert alert-success">
                                 <b style="font-family: 'Comic Sans MS';font-size: large"
-                                   class="float-left">{{strtoupper($best_answer->user->name)}}</b>
+                                   class="float-left">{{strtoupper($best_answer->user->name)}} (Points: {{$best_answer->user->points}}) </b>
                                 <span class="float-right">
                                 <b>{{$best_answer->created_at->diffForHumans()}}</b>
                             </span>
@@ -91,7 +91,7 @@
                                 <div class="row justify-content-center">
                                     <div class="card">
                                         <div class="card-header float-left">
-                                            <b style="font-family: 'Comic Sans MS';font-size: large">{{strtoupper($r->user->name)}}</b>
+                                            <b style="font-family: 'Comic Sans MS';font-size: large">{{strtoupper($r->user->name)}} (Points: {{$r->user->points}})</b>
                                             <span class="float-right">
                                                 <b>{{$r->created_at->diffForHumans()}}</b>
                                             </span>

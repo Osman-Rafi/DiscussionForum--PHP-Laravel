@@ -69,6 +69,9 @@ class DiscussionController extends Controller
             'content' => \request('content')
         ]);
 
+        $reply->user->points+=25;
+        $reply->user->save();
+
 
         Session::flash('success','Replied Successfully created');
         return redirect()->back();

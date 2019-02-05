@@ -37,6 +37,9 @@ class RepliesController extends Controller
         $reply=Reply::find($id);
         $reply->best_answer=1;
 
+        $reply->user->points+=50;
+        $reply->user->save();
+
         $reply->save();
 
         Session::flash('success','You marked the answer as best answer');
