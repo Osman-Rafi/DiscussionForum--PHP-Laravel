@@ -35,8 +35,17 @@ class DiscussionController extends Controller
             'slug' => str_slug($request->title)
         ]);
 
+
+        $notification = array(
+            'message' => 'Discussion Successfully Created!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('discussion',['slug' => $dicussion->slug])->with($notification);
+
+        /*return Redirect::to('/')->with($notification);
+
         Session::flash('success','Discussion Successfully Created');
-        return redirect()->route('discussion',['slug' => $dicussion->slug]);
+        return redirect()->route('discussion',['slug' => $dicussion->slug]);*/
     }
 
     public function show($slug)
@@ -73,7 +82,7 @@ class DiscussionController extends Controller
         $reply->user->save();
 
 
-        Session::flash('success','Replied Successfully created');
+        success('success','Replied Successfully created');
         return redirect()->back();
     }
 

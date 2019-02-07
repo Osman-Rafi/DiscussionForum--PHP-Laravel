@@ -15,9 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
 </head>
 <body>
 <div id="app">
@@ -79,18 +79,18 @@
     <main class="py-4">
 
 
-{{--        <div class="container">
-            @if($errors->count()>0)
-                <ul class="list-group-item alert alert-danger">
-                    @foreach($errors as $error)
-                        <li class="list-group_item">
-                            {{$error}}
-                        </li>
-                    @endforeach
+        {{--        <div class="container">
+                    @if($errors->count()>0)
+                        <ul class="list-group-item alert alert-danger">
+                            @foreach($errors as $error)
+                                <li class="list-group_item">
+                                    {{$error}}
+                                </li>
+                            @endforeach
 
-                </ul>
-            @endif
-        </div>--}}
+                        </ul>
+                    @endif
+                </div>--}}
 
         <div class="container">
 
@@ -152,5 +152,33 @@
 
     </main>
 </div>
+
+{{--Toastr Scripy--}}
+
+<script src="{{asset('js/toastr.min.js')}}"></script>
+
+<script>
+            @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+    @endif
+</script>
+
 </body>
 </html>
