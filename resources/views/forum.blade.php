@@ -7,15 +7,26 @@
                 @foreach($discussion as $post)
 
                     <div class="card">
+
                         <div class="card-header float-left">
                             <img src="{{$post->user->avatar}}" alt="" width="70" height="70">
                             <b style="font-family: 'Comic Sans MS';font-size: large">{{$post->user->name}}</b>
+
                             <span class="float-right">
-                                <a class="badge badge-secondary" href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
-                                   <b>{{$post->created_at->diffForHumans()}}</b>
+                                <a class="badge badge-secondary"
+                                   href="{{route('channel',['slug'=> $post->channel->slug])}}">{{$post->channel->title}}</a>
+
+                                <b>{{$post->created_at->diffForHumans()}}</b>
+
+                               {{-- @if($post->PostStatus())
+                                    <span class="btn btn-danger btn-sm">Closed</span>
+                                @else
+                                    <span class="btn btn-warning btn-sm">Open</span>--}}
 
                             </span>
+
                         </div>
+
                         <div class="card text-center">
                             <div class="card-body">
                                 <h3 class="card-title" style="font-family: 'Yu Gothic UI'">{{$post->title}}</h3>

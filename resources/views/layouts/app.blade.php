@@ -107,6 +107,16 @@
                         <li class="list-group-item">
                             <a href="/forum">Home</a>
                         </li>
+
+                        @if(Auth::check())
+                            @if(Auth::user()->admin)
+                                <li class="list-group-item">
+                                    <a href="/channels">Channels</a>
+                                </li>
+                            @endif
+                        @endif
+
+
                     </div>
 
 
@@ -160,7 +170,7 @@
 <script>
             @if(Session::has('message'))
     var type = "{{ Session::get('alert-type', 'info') }}";
-    switch(type){
+    switch (type) {
         case 'info':
             toastr.info("{{ Session::get('message') }}");
             break;

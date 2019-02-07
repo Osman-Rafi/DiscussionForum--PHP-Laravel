@@ -15,6 +15,11 @@ class ChannelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         return view('channels.index')->with('channels',Channels::all());

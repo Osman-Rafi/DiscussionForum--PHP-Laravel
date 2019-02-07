@@ -48,4 +48,9 @@ class Discussion extends Model
         else
             return false;
     }
+
+    public function PostStatus()
+    {
+        return true;
+    }
 }
