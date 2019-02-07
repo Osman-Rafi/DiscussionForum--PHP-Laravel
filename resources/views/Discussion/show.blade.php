@@ -43,7 +43,7 @@
 
                     @if($best_answer)
 
-                        {{--Best Answer Sectio Start--}}
+                        {{--Best Answer Section Start--}}
 
                         <div class="card-footer text-muted">
                             <h2>Best Answer</h2>
