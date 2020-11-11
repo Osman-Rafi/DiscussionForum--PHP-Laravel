@@ -9,6 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.idea
 
 
 # Created by https://www.gitignore.io/api/intellij
